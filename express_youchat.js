@@ -1,11 +1,14 @@
 var express = require('express');
 var app = express.createServer(), port = 51045;
+app.enable('jsonp callback');
 
 var chatroom = require('chatroom');
 var youtube = require('youtube');
 var login = require('login');
+var user = require('user');
 var static_loader = require('static_loader');
 var jade_loader = require('jade_loader');
+global.config = require('./config');
 
 app.configure(function(){
     app.set('views', __dirname + '/views');
@@ -44,15 +47,16 @@ for(route in routes){
     start_router(route);
 }
 
-
+/*
 app.get('/user/:id', function(req, res){
     console.log('lang ' + req.lang);
     res.send('user:' + req.params.id);
 });
-
+*/
 app.post('/chatroom/:action/*', chatroom);
 app.post('/youtube/:action/*', youtube);
-app.post('/login/*', login);
+app.get('/login/*', login);
+app.get('/user/*', user);
 app.get('/views/:page', jade_loader);
 app.get('/static/*', static_loader);
 app.listen(port);
