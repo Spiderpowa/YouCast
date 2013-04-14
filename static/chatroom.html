@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+<head>
+    <title>node.js Chatroom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/chatroom.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>node.js Chatroom</h1>
+    <div id="chatroom" style="height:200px;border:1px solid black;width:300px;overflow:auto">
+    </div>
+    <form action="/chatroom" method="post" onsubmit="return dosubmit(this);">
+        <span id="myname"></span> : <input type="text" name="msg" />
+        <input type="submit" value="send" />
+        <input type="hidden" name="nick" id="username" />
+    </form>
+</body>
+</html>

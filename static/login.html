@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Host Login</title>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/geturlvars.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function make_room(room_num){
+            var room = $('#rooms');
+            for(var i=0; i<room_num; ++i){
+                var input = $('<input type="radio">').appendTo(room);
+                input.attr('value', i+1);
+                input.attr('name', 'hostid');
+                input.after(i+1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <h2><script type="text/javascript">document.write($.getUrlVars()['msg']?$.getUrlVars()['msg']:'');</script></h2>
+    <form action="/login/" method="post">
+        <div id="rooms">Host </div>
+        Nickname <input name="nick" /><br />
+        Password <input type="password" name="password" /><br />
+        <input type="submit" />
+    </form>
+    <script type="text/javascript">
+//        make_room(3);
+    </script>
+</body>
+</html>

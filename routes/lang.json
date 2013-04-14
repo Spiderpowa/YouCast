@@ -1,0 +1,9 @@
+{
+    "default": "zh-TW",
+    "item": [
+        {
+            "lang" : "zh-TW",
+            "file" : "data_zhTW.json"
+        }
+    ]
+}

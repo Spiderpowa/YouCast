@@ -1,0 +1,12 @@
+.host{
+    padding-left:24px;
+    background-color:#FFFFAA;
+    background-image:url('../images/wdd_kaching_icons/png24/quality_24.png');
+    background-repeat:no-repeat;
+    background-position:left top;
+}
+
+.host_nowplay{
+    background-color:#FFFFAA;
+    font-weight:bold;
+}

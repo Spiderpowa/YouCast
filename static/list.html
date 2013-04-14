@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Room List</title>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function do_list(form){
+            var roomvalue;
+            for(var i=0; i<form.room.length; ++i){
+                if(form.room[i].checked)
+                    roomvalue = form.room[i].value;
+            }
+            if(!roomvalue || !form.nick)
+                return false
+            form.action = "/chatroom/join/?hostid=" + roomvalue;
+            return true;
+        }
+        function make_room(room_num){
+            var room = $('#rooms');
+            for(var i=0; i<room_num; ++i){
+                var input = $('<input type="radio">').appendTo(room);
+                input.attr('value', i+1);
+                input.attr('name', 'room');
+                input.after(i+1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>List</h1>
+    <form method="post" onsubmit="return do_list(this)">
+        <div id="rooms">Room: </div>
+        Nickname: <input type="text" name="nick" /><br />
+        <input type="submit" value="Join" />
+    </form>
+    <script type="text/javascript">
+        make_room(15);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+{
+    "/": {
+        "template": "index",
+        "data": "index"
+    },
+    "/xxx": {
+        "template": "xxx",
+        "data": "xxx"
+    }
+}
