@@ -1,5 +1,7 @@
+var port = 51045;
+
 var express = require('express');
-var app = express.createServer(), port = 51045;
+var app = express();
 app.enable('jsonp callback');
 
 var chatroom = require('chatroom');
@@ -11,8 +13,8 @@ var jade_loader = require('jade_loader');
 global.config = require('./config');
 
 app.configure(function(){
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
+//    app.set('views', __dirname + '/views');
+//    app.set('view engine', 'jade');
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
