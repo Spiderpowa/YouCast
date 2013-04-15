@@ -16,7 +16,7 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
-    app.use(express.session({secret: 'papapa'}));
+    app.use(express.session({secret: global.config.session_secret}));
     app.use(function(req, res, next){
         req.lang = req.header('Accept-Language').split(',')[0];
         if(!data[req.lang]){

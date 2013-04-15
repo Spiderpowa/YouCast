@@ -1,4 +1,5 @@
 var config = {};
+config.session_secret = '';
 config.secret = '';
 
 config.db_host = '';
