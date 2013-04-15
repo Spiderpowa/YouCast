@@ -17,6 +17,7 @@ app.configure(function(){
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({secret: global.config.session_secret}));
+    /*
     app.use(function(req, res, next){
         req.lang = req.header('Accept-Language').split(',')[0];
         if(!data[req.lang]){
@@ -26,6 +27,7 @@ app.configure(function(){
     });
     app.use(app.router);
     app.use(express.static(__dirname + '/static'));
+    */
 });
 
 var fs = require("fs");
@@ -53,8 +55,8 @@ app.get('/user/:id', function(req, res){
     res.send('user:' + req.params.id);
 });
 */
-app.post('/chatroom/:action/*', chatroom);
-app.post('/youtube/:action/*', youtube);
+app.get('/chatroom/:action/*', chatroom);
+app.get('/youtube/:action/*', youtube);
 app.get('/login/*', login);
 app.get('/user/*', user);
 app.get('/views/:page', jade_loader);
